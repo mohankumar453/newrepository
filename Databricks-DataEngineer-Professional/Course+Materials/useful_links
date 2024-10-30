@@ -1,0 +1,18 @@
+1. Create cron job expression using the below link
+https://www.freeformatter.com/cron-expression-generator-quartz.html
+
+2. Link for Databricks APIs.
+https://docs.databricks.com/api/azure/workspace/jobs/runnow
+Use postman tool for sending requests using API calls
+
+3. Databricks CLI documentation
+https://docs.databricks.com/en/dev-tools/cli/index.html
+ 1. install python in your pc
+ 2. install databricks cli
+ 3. configure databricks ws
+ 4. you can ese the config fie on C\Users\<username> folder.
+databricks cli allows you to manage various databricks resource like jobs, clusters
+cli is built on top of databricks API
+
+
+

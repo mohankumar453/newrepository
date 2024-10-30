@@ -59,7 +59,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC --below query would fail a sorting(ORDER BY) and deduplication are not supported in streaming process. you need to use windowing and watermarking to achice the same.
+# MAGIC --below query would fail a sorting(ORDER BY) and deduplication are not supported in streaming process. you need to use windowing and watermarking to achieve the same.
 # MAGIC  SELECT * 
 # MAGIC  FROM books_streaming_tmp_vw
 # MAGIC  ORDER BY author
@@ -74,6 +74,7 @@
 
 # MAGIC %sql
 # MAGIC --author_counts_tmp_vw will again be a streaming view as it is created on top of another streaming view
+# MAGIC --streaming view is converted to steaming temp view to use pyspark APIs down the line
 # MAGIC CREATE OR REPLACE TEMP VIEW author_counts_tmp_vw AS (
 # MAGIC   SELECT author, count(book_id) AS total_books
 # MAGIC   FROM books_streaming_tmp_vw
@@ -133,9 +134,7 @@
 # COMMAND ----------
 
 #In this scenario, we modify the trigger method to change our query from an always-on query triggered every 4 seconds to a triggered incremental batch. We do this using the availableNow trigger option.
-#With this trigger option, the query will process all new available data and stop on its own after execution. In this case, we can use the awaitTermination method to block the execution of any cell in this
-
-notebook until the incremental batch's write has succeeded.
+#With this trigger option, the query will process all new available data and stop on its own after execution. In this case, we can use the awaitTermination method to block the execution of any cell in this notebook until the incremental batch's write has succeeded.
 (spark.table("author_counts_tmp_vw")                               
       .writeStream           
       .trigger(availableNow=True)

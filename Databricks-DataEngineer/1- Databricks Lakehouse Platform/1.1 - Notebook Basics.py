@@ -31,13 +31,20 @@ print("Hello World!")
 # MAGIC
 # MAGIC And of course, tables:
 # MAGIC
-# MAGIC | user_id | user_name |
+# MAGIC | user_id | user_name | 
 # MAGIC |---------|-----------|
 # MAGIC |    1    |    Adam   |
 # MAGIC |    2    |    Sarah  |
 # MAGIC |    3    |    John   |
 # MAGIC
 # MAGIC Links (or Embedded HTML): <a href="https://docs.databricks.com/notebooks/notebooks-manage.html" target="_blank"> Managing Notebooks documentation</a>
+# MAGIC
+# MAGIC ---
+# MAGIC tags:
+# MAGIC - Harrogate rural area inflows calcs
+# MAGIC - Asset Performance Management
+# MAGIC - Santa reports
+# MAGIC ---
 
 # COMMAND ----------
 
